@@ -1,7 +1,21 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Merriweather, Open_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const merriweather = Merriweather({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-merriweather",
+});
+
+const openSans = Open_Sans({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-open-sans",
+});
 
 export const metadata = {
   title: "Oddaj rzeczy by AS",
@@ -11,7 +25,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={openSans.className}>{children}</body>
+      {/* <body className={`${openSans.variable} font-sans`}>{children}</body> */}
     </html>
   );
 }
