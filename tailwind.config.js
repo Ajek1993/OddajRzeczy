@@ -20,6 +20,13 @@ module.exports = {
         signIn_signOnBtn: "#737373",
         text_color: "#3c3c3c",
       },
+      inset: {
+        "-483px": "-483px",
+      },
+      container: {
+        center: true,
+        padding: "0 142px",
+      },
     },
   },
   plugins: [],

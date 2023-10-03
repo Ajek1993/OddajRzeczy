@@ -1,3 +1,3 @@
 export default function page() {
-  return <div>New</div>;
+  return <div>Rejestracja</div>;
 }
