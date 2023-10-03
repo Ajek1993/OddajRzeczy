@@ -3,16 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --secondary-bcg: #f0f1f1;
+  --accent-text-color: #5e5322;
+  --yellow-color: #fad648;
+  --signIn-signOn-btn: #737373;
+  --text-color: #3c3c3c;
 }
-
-/* Open Sans - Open Sans - Google Fonts
-Merriweather - Merriweather - Google Fonts
-Kolory
-#F0F1F1
-#5E5322
-#FAD648
-#737373
-#3C3C3C */

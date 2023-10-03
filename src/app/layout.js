@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Merriweather, Open_Sans } from "next/font/google";
 
-const merriweather = Merriweather({
+export const merriweather = Merriweather({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
@@ -9,7 +9,7 @@ const merriweather = Merriweather({
   variable: "--font-merriweather",
 });
 
-const openSans = Open_Sans({
+export const openSans = Open_Sans({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
@@ -25,8 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>{children}</body>
-      {/* <body className={`${openSans.variable} font-sans`}>{children}</body> */}
+      <body className={`${openSans.variable} font-sans`}>{children}</body>
     </html>
   );
 }
