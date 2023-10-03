@@ -46,8 +46,8 @@ export default function HomeHeader() {
             ]}
           />
           <div className="flex gap-10 mt-6">
-            <BigButtons text={"oddaj rzeczy"} />
-            <BigButtons text={"zorganizuj zbiórkę"} />
+            <BigButtons text={"oddaj rzeczy"} address="/login" />
+            <BigButtons text={"zorganizuj zbiórkę"} address="/login" />
           </div>
         </div>
       </header>
