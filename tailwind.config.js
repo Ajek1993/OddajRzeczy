@@ -27,6 +27,9 @@ module.exports = {
         center: true,
         padding: "0 142px",
       },
+      backgroundImage: {
+        "three-columns": "url('/public/3-Columns-Background.png')",
+      },
     },
   },
   plugins: [],

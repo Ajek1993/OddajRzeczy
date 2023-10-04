@@ -1,5 +1,5 @@
 import Image from "next/image";
-import decorationImg from "../../public/Decoration.svg";
+import decorationImg from "../images/Decoration.svg";
 
 export default function Heading({ title }) {
   return (
