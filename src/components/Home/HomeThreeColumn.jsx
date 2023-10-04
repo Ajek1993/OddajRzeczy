@@ -4,7 +4,10 @@ import { merriweather } from "@/app/layout";
 export default function HomeThreeColumn() {
   return (
     <>
-      <section className="h-full md:h-[384px] bg-yellow bg-three-columns flex flex-col md:flex-row justify-around items-center text-center text-text_color">
+      <section
+        id="section-1"
+        className="h-full md:h-[384px] bg-yellow bg-three-columns flex flex-col md:flex-row justify-around items-center text-center text-text_color"
+      >
         <article className="flex flex-col justify-center items-center 2xl:mx-36 xl:mx-20 lg:mx-15 md:mx-10 mx-5">
           <h2 className="text-[90px] text-accentTextColor font-light">10</h2>
           <h3 className="text-lg uppercase mb-7">Oddanych worków</h3>

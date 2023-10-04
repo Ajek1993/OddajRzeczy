@@ -3,16 +3,16 @@ import decorationImg from "../images/Decoration.svg";
 
 export default function Heading({ title }) {
   return (
-    <>
+    <div className="flex flex-col justify-center items-center">
       {title.map((text) => {
         return (
-          <h2 className="mt-3" key={text}>
+          <h2 className="mt-3 text-4xl text-center" key={text}>
             {text}
           </h2>
         );
       })}
 
-      <Image className="mt-5" alt="decoration" src={decorationImg} />
-    </>
+      <Image className="my-8" alt="decoration" src={decorationImg} />
+    </div>
   );
 }

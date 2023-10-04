@@ -38,7 +38,7 @@ export default function HomeHeader() {
             className="md: absolute md:-left-483px top-0"
           />
         </div>
-        <div className="w-1/2 text-4xl text-center flex flex-col justify-center items-center">
+        <div className="w-1/2 flex flex-col justify-center items-center">
           <Heading
             title={[
               "Zacznij pomagać!",
