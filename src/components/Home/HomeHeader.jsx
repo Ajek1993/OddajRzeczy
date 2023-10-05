@@ -20,7 +20,7 @@ export default function HomeHeader() {
             Załóż konto
           </Link>
         </nav>
-        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color bg-secondaryBcg md:bg-inherit mt-6">
+        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
           <Link href="#section-1" className={styleLink}>
             Start
           </Link>

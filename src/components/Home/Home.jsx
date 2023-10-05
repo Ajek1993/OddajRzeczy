@@ -1,4 +1,5 @@
 import HomeAboutUs from "./HomeAboutUs";
+import HomeContact from "./HomeContact";
 import HomeHeader from "./HomeHeader";
 import HomeSimpleSteps from "./HomeSimpleSteps";
 import HomeThreeColumn from "./HomeThreeColumn";
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeSimpleSteps />
       <HomeAboutUs />
       <HomeWhoWeHelp />
+      <HomeContact />
     </>
   );
 }
