@@ -6,7 +6,7 @@ export default function Heading({ title }) {
     <div className="flex flex-col justify-center items-center">
       {title.map((text) => {
         return (
-          <h2 className="mt-3 text-4xl text-center" key={text}>
+          <h2 className="mt-3 text-[38px] text-center" key={text}>
             {text}
           </h2>
         );

@@ -25,7 +25,7 @@ function Article({ icon, description, h4, p }) {
   );
 }
 
-export default function HomeWhatAbout() {
+export default function HomeSimpleSteps() {
   return (
     <section id="section-2" className="pt-14 ">
       <Heading title={["Wystarczą 4 proste kroki"]} />
@@ -57,7 +57,7 @@ export default function HomeWhatAbout() {
           />
         </div>
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-[35px]">
         <BigButtons text={"oddaj rzeczy"} address="/login" />
       </div>
     </section>
