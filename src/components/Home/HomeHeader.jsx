@@ -5,6 +5,7 @@ import Heading from "../Heading";
 import BigButtons from "../BigButtons";
 
 export default function HomeHeader() {
+  console.log(headerImg);
   return (
     <>
       <div className="navigations container flex flex-col justify-end">
@@ -17,7 +18,7 @@ export default function HomeHeader() {
             Załóż konto
           </Link>
         </nav>
-        <nav className="bottomNav flex items-center justify-end gap-6 text-lg text-text_color mt-6">
+        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
           <Link
             href="#section-1"
             className="border-solid border border-text_color py-2 px-5"
@@ -30,17 +31,16 @@ export default function HomeHeader() {
           <Link href="#section-5">Kontakt</Link>
         </nav>
       </div>
-      <header className="container flex flex-row justify-between h-screen">
-        <div>
-          <Image
-            alt="box with a lot of things"
-            src={headerImg}
-            className="md: absolute md:-left-483px top-0"
-          />
-        </div>
+      <header className="flex flex-col-reverse md:flex-row justify-between h-screen mt-8 ">
+        <div
+          style={{
+            backgroundImage: `url(${headerImg.src})`,
+          }}
+          className="w-full h-full bg-center bg-cover bg-no-repeat md:bg-[-483px] md:h-auto md:w-[45%] "
+        ></div>
         <div
           id="section-1"
-          className="w-1/2 flex flex-col justify-center items-center"
+          className="w-full md:w-[55%] flex flex-col justify-center items-center gap-5 px-8"
         >
           <Heading
             title={[
@@ -48,7 +48,7 @@ export default function HomeHeader() {
               "Oddaj niechciane rzeczy w zaufane ręce",
             ]}
           />
-          <div className="flex gap-10 mt-6">
+          <div className="flex flex-wrap justify-center gap-10 my-6">
             <BigButtons text={"oddaj rzeczy"} address="/login" />
             <BigButtons text={"zorganizuj zbiórkę"} address="/login" />
           </div>

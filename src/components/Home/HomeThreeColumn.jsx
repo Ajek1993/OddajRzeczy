@@ -3,7 +3,7 @@ import { merriweather } from "@/app/layout";
 
 function Article({ num, title, description }) {
   return (
-    <article className="flex flex-col justify-center items-center 2xl:mx-36 xl:mx-20 lg:mx-15 md:mx-10 mx-5 h-[300px]">
+    <article className="flex flex-col justify-center items-center 2xl:mx-36 xl:mx-20 lg:mx-15 md:mx-10 mx-5 h-[350px]">
       <h2 className="text-[90px] text-accentTextColor font-light">{num}</h2>
       <h3 className="text-lg uppercase mb-7">{title}</h3>
       <p className={`${merriweather.variable} font-merri font-light `}>

@@ -9,7 +9,7 @@ export default function HomeAboutUs() {
     >
       <div className="md:w-1/2 p-20 lg:px-36 lg:py-44 flex flex-col justify-center items-center bg-secondaryBcg">
         <Heading title={["O nas"]} />
-        <p className="text-3xl text-center leading-relaxed ">
+        <p className="text-base lg:text-3xl text-center leading-relaxed ">
           Nori grape silver beet broccoli kombu beet greens fava bean potato
           quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil
           turnip greens parsnip.

@@ -8,7 +8,7 @@ import BigButtons from "../BigButtons";
 
 function Article({ icon, description, h4, p }) {
   return (
-    <article className="mx-16 flex flex-col justify-center items-center">
+    <article className="mx-4 md:mx-8 my-8 lg:mx-12 xl:mx-16 flex flex-col justify-center items-center">
       <Image
         src={icon}
         alt={description}
@@ -30,7 +30,7 @@ export default function HomeSimpleSteps() {
     <section id="section-2" className="pt-14 ">
       <Heading title={["Wystarczą 4 proste kroki"]} />
       <div className="bg-secondaryBcg">
-        <div className="container flex justify-between items-center text-center text-text_color px-36 py-10">
+        <div className="lg:container flex justify-around selection:md:justify-between flex-wrap md:flex-nowrap items-center justify-items-cente text-center text-text_color px-12 py-6 lg:px-32 lg:py-10">
           <Article
             icon={icon1}
             description={"icon 1"}
