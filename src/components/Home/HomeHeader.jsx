@@ -8,7 +8,6 @@ const styleLink =
   "border-white border-solid border hover:border-text_color hover:bg-secondaryBcg duration-500 rounded py-2 px-5";
 
 export default function HomeHeader() {
-  console.log(headerImg);
   return (
     <>
       <div className="navigations container flex flex-col justify-end ">

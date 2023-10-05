@@ -3,7 +3,7 @@ import decorationImg from "../images/Decoration.svg";
 
 export default function Heading({ title }) {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center text-text_color">
       {title.map((text) => {
         return (
           <h2 className="mt-3 text-[38px] text-center" key={text}>
