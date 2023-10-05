@@ -5,7 +5,7 @@ export default function HomeAboutUs() {
   return (
     <section
       id="section-3"
-      className="flex flex-col md:flex-row justify-between text-text_color mt-20"
+      className="flex flex-col md:flex-row justify-between text-text_color"
     >
       <div className="md:w-1/2 p-20 lg:px-36 lg:py-44 flex flex-col justify-center items-center bg-secondaryBcg">
         <Heading title={["O nas"]} />

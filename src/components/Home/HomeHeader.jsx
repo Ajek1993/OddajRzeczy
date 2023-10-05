@@ -4,11 +4,14 @@ import Link from "next/link";
 import Heading from "../Heading";
 import BigButtons from "../BigButtons";
 
+const styleLink =
+  "border-white border-solid border hover:border-text_color hover:bg-secondaryBcg duration-500 rounded py-2 px-5";
+
 export default function HomeHeader() {
   console.log(headerImg);
   return (
     <>
-      <div className="navigations container flex flex-col justify-end">
+      <div className="navigations container flex flex-col justify-end ">
         <nav className="upperNav flex items-center justify-end gap-4 text-sm text-signIn_signOnBtn mt-9">
           <Link href="/login">Zaloguj</Link>
           <Link
@@ -18,17 +21,22 @@ export default function HomeHeader() {
             Załóż konto
           </Link>
         </nav>
-        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
-          <Link
-            href="#section-1"
-            className="border-solid border border-text_color py-2 px-5"
-          >
+        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color bg-secondaryBcg md:bg-inherit mt-6">
+          <Link href="#section-1" className={styleLink}>
             Start
           </Link>
-          <Link href="#section-2">O co chodzi?</Link>
-          <Link href="#section-3">O nas</Link>
-          <Link href="#section-4">Refundacja i organizacje</Link>
-          <Link href="#section-5">Kontakt</Link>
+          <Link href="#section-2" className={styleLink}>
+            O co chodzi?
+          </Link>
+          <Link href="#section-3" className={styleLink}>
+            O nas
+          </Link>
+          <Link href="#section-4" className={styleLink}>
+            Refundacja i organizacje
+          </Link>
+          <Link href="#section-5" className={styleLink}>
+            Kontakt
+          </Link>
         </nav>
       </div>
       <header className="flex flex-col-reverse md:flex-row justify-between h-screen mt-8 ">
