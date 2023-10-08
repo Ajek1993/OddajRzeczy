@@ -16,7 +16,7 @@ export default function Navigation() {
         </Link>
       </nav>
       <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
-        <Link href="#section-1" className={styleLink}>
+        <Link href="/" className={styleLink}>
           Start
         </Link>
         <Link href="#section-2" className={styleLink}>

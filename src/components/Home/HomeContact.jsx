@@ -7,6 +7,7 @@ import Image from "next/image";
 import instagram from "../../images/Instagram.svg";
 import facebook from "../../images/Facebook.svg";
 import * as yup from "yup";
+import Link from "next/link";
 
 export default function HomeContact() {
   const [data, setData] = useState({
@@ -173,11 +174,16 @@ export default function HomeContact() {
           )}
         </form>
       </div>
-      <footer className="px-36 w-full absolute bottom-0 flex justify-between">
+      <footer className="px-20 md:px-36 w-full absolute bottom-0 flex flex-col-reverse md:flex-row items-center md:justify-between">
         <span></span>
         <p className="">Copyright by Arkadiusz Sarach</p>
         <div className="flex gap-4 ">
-          <Image src={facebook} alt="facebook logo" width={30} height={30} />
+          <Image
+            src={facebook}
+            alt="facebook logo"
+            width={30}
+            height={30}
+          ></Image>
           <Image src={instagram} alt="instagram logo" width={30} height={30} />
         </div>
       </footer>
