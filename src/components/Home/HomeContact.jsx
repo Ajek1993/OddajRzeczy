@@ -1,16 +1,94 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import bcgPhoto from "../../images/Background-Contact-Form.jpg";
 import Heading from "../Heading";
 import Image from "next/image";
 import instagram from "../../images/Instagram.svg";
 import facebook from "../../images/Facebook.svg";
+import * as yup from "yup";
 
 export default function HomeContact() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState(false);
+
+  const validation = (obj) => {
+    setSuccess(false);
+    const findedErrors = [];
+
+    if (obj.name.length <= 3) {
+      findedErrors.push("Imię musi mieć długość min. 3 znaków");
+    }
+    if (obj.name.split(" ").length > 1) {
+      findedErrors.push("Imię musi składać się z jednego wyrazu");
+    }
+    if (
+      data.email.indexOf("@") === -1 ||
+      data.email.lastIndexOf(".") < data.email.lastIndexOf("@")
+    ) {
+      findedErrors.push("Niepoprawny adres email");
+    }
+    if (data.message.length < 120) {
+      findedErrors.push("Wiadomośc musi mieć długość min. 120 znaków");
+    }
+
+    setErrors(findedErrors);
   };
+
+  // const dataSchema = yup.object().shape({
+  //   name: yup.string().min(3),
+  //   email: yup.string().email("must be a valid email"),
+  //   message: yup.string().min(1).max(120),
+  // });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    validation(data);
+
+    try {
+      const response = await fetch(
+        "https://fer-api.coderslab.pl/v1/portfolio/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      response.ok &&
+        setData({
+          name: "",
+          email: "",
+          message: "",
+        });
+
+      response.ok && setSuccess(true);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // console.log(dataSchema);
+    // await dataSchema.validate(data).catch(function (err) {
+    //   console.log(err.name);
+    //   console.log(err.errors);
+    // });
+  };
+
+  const handleChange = ({ target: { name, value } }) => {
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div id="section-4" className="relative">
       <div
@@ -35,6 +113,9 @@ export default function HomeContact() {
                 id="name"
                 className="outline-none py-1 border-b border-text_color border-solid placeholder:italic placeholder:opacity-50"
                 placeholder="Andrzej"
+                name="name"
+                value={data.name}
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col lg:w-1/2">
@@ -47,6 +128,9 @@ export default function HomeContact() {
                 id="email"
                 className="outline-none py-1  border-b border-text_color border-solid placeholder:italic placeholder:opacity-50"
                 placeholder="krzysztof.s@gmail.com"
+                name="email"
+                value={data.email}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -62,6 +146,9 @@ export default function HomeContact() {
               placeholder="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae veniam ex. Necessitatibus totam voluptatibus impedit, numquam quo harum? Obcaecati! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae veniam ex. Necessitatibus totam voluptatibus impedit, numquam quo harum? Obcaecati!"
               cols={33}
               rows={6}
+              name="message"
+              value={data.message}
+              onChange={handleChange}
             />
           </div>
           <button
@@ -71,6 +158,19 @@ export default function HomeContact() {
           >
             Wyślij
           </button>
+          {errors.length !== 0 && (
+            <ul
+              className="bg-red-500 text-white p-4 font-bold text-sm
+          "
+            >
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
+          {success && (
+            <p className="bg-green-500 text-white p-2">Wysłano poprawnie</p>
+          )}
         </form>
       </div>
       <footer className="px-36 w-full absolute bottom-0 flex justify-between">
