@@ -19,16 +19,16 @@ export default function Navigation() {
         <Link href="/" className={styleLink}>
           Start
         </Link>
-        <Link href="#section-2" className={styleLink}>
+        <Link href="/#section-2" className={styleLink}>
           O co chodzi?
         </Link>
-        <Link href="#section-3" className={styleLink}>
+        <Link href="/#section-3" className={styleLink}>
           O nas
         </Link>
-        <Link href="#section-4" className={styleLink}>
+        <Link href="/#section-4" className={styleLink}>
           Refundacja i organizacje
         </Link>
-        <Link href="#section-5" className={styleLink}>
+        <Link href="/#section-5" className={styleLink}>
           Kontakt
         </Link>
       </nav>
