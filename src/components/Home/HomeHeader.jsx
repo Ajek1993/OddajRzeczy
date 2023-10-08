@@ -1,43 +1,12 @@
-import Image from "next/image";
 import headerImg from "../../images/Home-Hero-Image.jpg";
-import Link from "next/link";
 import Heading from "../Heading";
 import BigButtons from "../BigButtons";
-
-const styleLink =
-  "border-white border-solid border hover:border-text_color hover:bg-secondaryBcg duration-500 rounded py-2 px-5";
+import Navigation from "../Navigation";
 
 export default function HomeHeader() {
   return (
     <>
-      <div className="navigations container flex flex-col justify-end ">
-        <nav className="upperNav flex items-center justify-end gap-4 text-sm text-signIn_signOnBtn mt-9">
-          <Link href="/login">Zaloguj</Link>
-          <Link
-            href="/register"
-            className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg"
-          >
-            Załóż konto
-          </Link>
-        </nav>
-        <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
-          <Link href="#section-1" className={styleLink}>
-            Start
-          </Link>
-          <Link href="#section-2" className={styleLink}>
-            O co chodzi?
-          </Link>
-          <Link href="#section-3" className={styleLink}>
-            O nas
-          </Link>
-          <Link href="#section-4" className={styleLink}>
-            Refundacja i organizacje
-          </Link>
-          <Link href="#section-5" className={styleLink}>
-            Kontakt
-          </Link>
-        </nav>
-      </div>
+      <Navigation />
       <header className="flex flex-col-reverse md:flex-row justify-between h-screen mt-8 ">
         <div
           style={{
