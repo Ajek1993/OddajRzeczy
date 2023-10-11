@@ -91,14 +91,15 @@ export default function HomeContact() {
   };
 
   return (
-    <div id="section-5" className="relative">
-      <div
-        className="h-screen flex justify-end items-center bg-cover bg-no-repeat bg-right md:bg-center before:block before:w-full before:h-full before:bg-white before:opacity-10 md:before:opacity-70"
-        style={{
-          backgroundImage: `url(${bcgPhoto.src})`,
-        }}
-      ></div>
-      <div className="md:w-[40%] px-6 md:px-16 md:pr-0 lg:pr-16 inset-0 md:inset-auto md:inset-y-0  md:right-0 ">
+    <div
+      id="section-5"
+      className="relative bg-right md:bg-center bg-no-repeat bg-cover flex flex-col gap-12"
+      style={{
+        backgroundImage: `url(${bcgPhoto.src})`,
+      }}
+    >
+      <div className="absolute h-full w-full top-0 md:left-0 bg-white/50"></div>
+      <div className="relative md:w-[45%] lg:w=[40%] px-6 md:px-16 lg:pr-32 md:self-end">
         <Heading title={["Skontaktuj się z nami"]} />
         <form className="flex flex-col gap-6 text-text_color ">
           <div className="flex flex-col lg:flex-row justify-center gap-2">
@@ -174,7 +175,7 @@ export default function HomeContact() {
           )}
         </form>
       </div>
-      <footer className="px-20 md:px-36 w-full flex flex-col-reverse md:flex-row items-center md:justify-between">
+      <footer className="relative px-5 md:px-36 w-full flex flex-col-reverse md:flex-row items-center md:justify-between">
         <span></span>
         <p className="">Copyright by Arkadiusz Sarach</p>
         <div className="flex gap-4 ">

@@ -7,7 +7,7 @@ import data from "./data";
 function MiddleButton({ text, id, activeColumn, change }) {
   return (
     <button
-      className={`text-2xl text-center  ${
+      className={`w-[90%] md:w-[250px] text-2xl text-center  ${
         id === activeColumn
           ? " border-text_color border border-solid"
           : 'border-white border border-solid"'
@@ -66,7 +66,7 @@ export default function HomeWhoWeHelp() {
           change={() => handleChange("zbiórki")}
         />
       </div>
-      <p className="text-center text-[22px] md:w-[640px] pt-16 pb-4">
+      <p className="text-center text-lg md:text-[22px] md:w-[640px] pt-16 pb-4">
         {category.description}
       </p>
       <div className="w-full px-4 md:px-28">

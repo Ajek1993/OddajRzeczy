@@ -15,7 +15,7 @@ export default function Navigation() {
           Załóż konto
         </Link>
       </nav>
-      <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color mt-6">
+      <nav className="bottomNav flex flex-col md:flex-row items-center justify-end gap-6 text-lg text-text_color text-center mt-6">
         <Link href="/" className={styleLink}>
           Start
         </Link>
