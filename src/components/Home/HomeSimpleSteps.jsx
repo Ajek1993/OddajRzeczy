@@ -58,7 +58,7 @@ export default function HomeSimpleSteps() {
         </div>
       </div>
       <div className="flex justify-center my-[35px] md:mb-20 ">
-        <BigButtons text={"oddaj rzeczy"} address="/oddaj-rzeczy/step" />
+        <BigButtons text={"oddaj rzeczy"} address="/oddaj-rzeczy/1" />
       </div>
     </section>
   );

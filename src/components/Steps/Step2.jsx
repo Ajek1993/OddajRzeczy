@@ -17,10 +17,11 @@ export default function Step2({ step, prev, next }) {
         >
           <div className="mt-12">
             <label>Liczba worków 60L:</label>
-            <select className="bg-transparent ml-12 border border-solid border-black w-[200px]">
-              <option
-                style={{ value: "", selected: "", disabled: "", hidden: "" }}
-              >
+            <select
+              defaultValue={"default"}
+              className="bg-transparent ml-12 border border-solid border-black w-[200px] text-2xl py-1 px-2"
+            >
+              <option value="default" disabled hidden>
                 --wybierz--
               </option>
               <option>1</option>

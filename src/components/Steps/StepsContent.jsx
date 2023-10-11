@@ -5,32 +5,56 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import StepSummary from "./StepSummary";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function StepsContent() {
-  const [step, setStep] = useState(1);
+  const params = useParams();
+  const router = useRouter();
 
   const handleNextPage = () => {
-    if (step === 5) return;
-    setStep((prev) => prev + 1);
+    if (+params.step === 5) return;
+    router.push(`/oddaj-rzeczy/${++params.step}`, { scroll: false });
   };
-  const handlePrevPage = () => setStep((prev) => prev - 1);
+  const handlePrevPage = () =>
+    router.push(`/oddaj-rzeczy/${--params.step}`, { scroll: false });
 
   return (
     <>
-      {step === 1 && (
-        <Step1 prev={handlePrevPage} next={handleNextPage} step={step} />
+      {+params.step === 1 && (
+        <Step1
+          prev={handlePrevPage}
+          next={handleNextPage}
+          step={+params.step}
+        />
       )}
-      {step === 2 && (
-        <Step2 prev={handlePrevPage} next={handleNextPage} step={step} />
+      {+params.step === 2 && (
+        <Step2
+          prev={handlePrevPage}
+          next={handleNextPage}
+          step={+params.step}
+        />
       )}
-      {step === 3 && (
-        <Step3 prev={handlePrevPage} next={handleNextPage} step={step} />
+      {+params.step === 3 && (
+        <Step3
+          prev={handlePrevPage}
+          next={handleNextPage}
+          step={+params.step}
+        />
       )}
-      {step === 4 && (
-        <Step4 prev={handlePrevPage} next={handleNextPage} step={step} />
+      {+params.step === 4 && (
+        <Step4
+          prev={handlePrevPage}
+          next={handleNextPage}
+          step={+params.step}
+        />
       )}
-      {step === 5 && (
-        <StepSummary prev={handlePrevPage} next={handleNextPage} step={step} />
+      {+params.step === 5 && (
+        <StepSummary
+          prev={handlePrevPage}
+          next={handleNextPage}
+          step={+params.step}
+        />
       )}
     </>
   );

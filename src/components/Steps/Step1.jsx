@@ -31,7 +31,7 @@ export default function Step1({ step, prev, next }) {
                 type="radio"
                 id="bad_clothes"
                 name="thing"
-                className="absolute -left-[210px]  after:block after:bg-transparent after:border after:border-black checked:after:bg-yellow after:h-[40px] after:w-[40px] after:absolute after:left-[200px]"
+                className="absolute -left-[210px] after:block after:bg-transparent after:border after:border-black checked:after:bg-yellow after:h-[40px] after:w-[40px] after:absolute after:left-[200px]"
               ></input>
               <label htmlFor="bad_clothes" className="pl-14">
                 ubrania, do wyrzucenia

@@ -15,7 +15,7 @@ export default function StepsHeader() {
         ></div>
         <div className="w-full md:w-[65%] lg:w-[55%] xl:w-[50%] flex flex-col justify-start items-center gap-5 px-24 md:h-screen">
           <Navigation />
-          <Heading title={["Oddaj rzeczy, których niechcesz POTRZEBUJĄCYM"]} />
+          <Heading title={["Oddaj rzeczy, których nie chcesz POTRZEBUJĄCYM"]} />
           <p className="font-light text-[40px] text-center">
             Wystarczą 4 proste kroki
           </p>
