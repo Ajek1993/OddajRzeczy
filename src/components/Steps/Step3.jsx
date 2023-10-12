@@ -18,20 +18,22 @@ function Checkbox({ text }) {
   };
   return (
     <div className="inline-block relative">
-      <input
-        // className={`h-[100%] w-[100%] absolute checked:hidden after:block after-w-[100%] after:h-[100%] after:bg-yellow after:content-['${text}'] after:px-6 after:py-2 after:border after:border-solid after:border-black`}
-        className="checked:hidden"
-        type="checkbox"
-        checked={formData.whoHelp.includes(`${text}`) && "checked"}
-        name={`${text}`}
-        id={`${text}`}
-        value={`${text}`}
-        onChange={handleCheck}
-      />
-      <label htmlFor={`${text}`}>
-        <div className="px-6 py-2 inline-block border border-solid border-black">
-          {text}
-        </div>
+      <label
+        htmlFor={`${text}`}
+        className={`px-6 py-2 inline-block border border-solid border-black ${
+          formData.whoHelp.includes(text) && "bg-yellow"
+        }`}
+      >
+        <input
+          className="hidden"
+          type="checkbox"
+          checked={formData.whoHelp.includes(`${text}`) && "checked"}
+          name={`${text}`}
+          id={`${text}`}
+          value={`${text}`}
+          onChange={handleCheck}
+        />
+        {text}
       </label>
     </div>
   );

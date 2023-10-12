@@ -18,8 +18,10 @@ export default function Step4({ step, prev, next }) {
     <div>
       <YellowBaner>Podaj adres oraz termin odbioru rzeczy.</YellowBaner>
       <StepBox step={step}>
-        <StepForm title={"Podaj adres oraz termin odbioru rzecz przez kuriera"}>
-          <div className="flex flex-col lg:flex-row flex-justify-between w-full xl:w-3/5 gap-12">
+        <StepForm
+          title={"Podaj adres oraz termin odbioru rzeczy przez kuriera"}
+        >
+          <div className="flex flex-col lg:flex-row justify-between w-full xl:w-[70%] gap-12">
             <div className="flex flex-col gap-5">
               <h3 className="py-10 font-semibold">Adres odbioru:</h3>
               <div className="flex flex-col md:flex-row justify-between gap-4">
@@ -56,7 +58,7 @@ export default function Step4({ step, prev, next }) {
                 />
               </div>
               <div className="flex flex-col md:flex-row justify-between gap-4">
-                <label htmlFor="phone">Numer telefonu</label>
+                <label htmlFor="phone">Telefon</label>
                 <input
                   name="phone"
                   value={formData.phone}
