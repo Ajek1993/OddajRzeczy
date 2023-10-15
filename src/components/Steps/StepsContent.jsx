@@ -5,6 +5,7 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import StepSummary from "./StepSummary";
+import StepThanks from "./StepThanks";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +14,6 @@ export default function StepsContent() {
   const router = useRouter();
 
   const handleNextPage = () => {
-    if (+params.step === 5) return;
     router.push(`/oddaj-rzeczy/${++params.step}`, { scroll: false });
   };
   const handlePrevPage = () =>
@@ -56,6 +56,7 @@ export default function StepsContent() {
           step={+params.step}
         />
       )}
+      {+params.step === 6 && <StepThanks />}
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-// import { CircularProgress } from "@nextui-org/react";
+import { CircularProgress } from "@nextui-org/react";
 import { useUser } from "@/providers/UserProvider";
 
 const styleLink =
@@ -12,7 +12,7 @@ export default function Navigation() {
   const getUser = () => {
     switch (user) {
       case false:
-        return <p>Loading...</p>;
+        return <CircularProgress aria-label="Loading..." />;
       case null:
         return (
           <>
@@ -28,10 +28,10 @@ export default function Navigation() {
       default:
         return (
           <>
-            <p>{`Witaj, ${user.email} !`}</p>
+            <p className="font-semibold">{`Witaj, ${user.email} !`}</p>
             <Link
               href="/oddaj-rzeczy/1"
-              className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg"
+              className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg font-semibold"
             >
               Oddaj rzeczy
             </Link>

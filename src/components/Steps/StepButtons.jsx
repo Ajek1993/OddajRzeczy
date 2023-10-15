@@ -1,16 +1,51 @@
 import React from "react";
+import { useForm } from "@/providers/FormProvider";
+import { usePathname } from "next/navigation";
 
 export default function StepButtons({ step, prev, next, send }) {
+  const { formData, setFormData } = useForm();
+  const pathname = usePathname();
+  console.log(pathname);
+
   const handleClickPrev = () => {
     prev();
   };
 
   const handleClickNext = () => {
+    if (!formData.thing && pathname === "/oddaj-rzeczy/1") {
+      alert("Musisz zaznaczyć jedną z opcji");
+      return;
+    }
+    if (!formData.bags && pathname === "/oddaj-rzeczy/2") {
+      alert("Musisz zaznaczyć jedną z opcji");
+      return;
+    }
+    if (!formData.localization && pathname === "/oddaj-rzeczy/3") {
+      alert("Musisz wybrać lokalizację");
+      return;
+    }
+    if (formData.whoHelp.length === 0 && pathname === "/oddaj-rzeczy/3") {
+      alert("Musisz wybrać przynajmniej jedną z opcji");
+      return;
+    }
+    if (
+      (!formData.street ||
+        !formData.city ||
+        !formData.code ||
+        !formData.phone ||
+        !formData.date ||
+        !formData.hour) &&
+      pathname === "/oddaj-rzeczy/4"
+    ) {
+      alert("Wprowadź poprawnie wszystkie dane");
+      return;
+    }
     next();
   };
 
   const handleSubmit = () => {
     send();
+    next();
   };
 
   return (

@@ -8,16 +8,7 @@ import { useForm } from "@/providers/FormProvider";
 function Checkbox({ text, id }) {
   const { formData, setFormData } = useForm();
 
-  // const handleCheck = ({ target: { name, value, checked } }) => {
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     whoHelp: checked
-  //       ? [...formData.whoHelp.filter((el) => el !== value), value]
-  //       : [...formData.whoHelp.filter((el) => el !== value)],
-  //   }));
-  // };
-
-  const handleChange = ({ target: { name, value, checked } }) => {
+  const handleChange = ({ target: { name, value } }) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,

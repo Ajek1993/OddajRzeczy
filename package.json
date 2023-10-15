@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.1.13",
     "firebase": "^10.5.0",
     "firebase-firestore-lite": "^1.0.3",
     "framer-motion": "^10.16.4",

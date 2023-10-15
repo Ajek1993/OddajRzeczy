@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Merriweather, Open_Sans } from "next/font/google";
 import UserProvider from "@/providers/UserProvider";
+import NextProvider from "@/providers/NextProvider";
 
 export const merriweather = Merriweather({
   weight: ["400", "700"],
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
   return (
     <html className="scroll-smooth" lang="en">
       <body className={`${openSans.variable} font-sans `}>
-        <UserProvider>{children}</UserProvider>
+        <NextProvider>
+          <UserProvider>{children}</UserProvider>
+        </NextProvider>
       </body>
     </html>
   );

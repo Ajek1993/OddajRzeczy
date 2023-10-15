@@ -2,21 +2,34 @@ import React from "react";
 import StepBox from "./StepBox";
 import StepButtons from "./StepButtons";
 import { useForm } from "@/providers/FormProvider";
+import Image from "next/image";
+import icon1 from "../../images/Icon-1.svg";
+import icon4 from "../../images/Icon-4.svg";
 
-export default function StepSummary({ step, prev }) {
-  const { formData, setFormData } = useForm();
+export default function StepSummary({ step, prev, next }) {
+  const { formData, setFormData, sendForm } = useForm();
 
-  const send = () => {
-    alert("Dane zostały wysłane");
-  };
   return (
     <StepBox>
       <h2 className="px-4 md:px-24 text-black text-4xl font-semibold">
         Podsumowanie Twojej darowizny
       </h2>
       <div className="px-4 md:px-24 text-2xl">
-        <div>
+        <div className="flex flex-col gap-4">
           <h3 className="py-10 font-semibold">Oddajesz:</h3>
+          <div className="flex items-center gap-4">
+            <Image src={icon1} alt={"shirt"} width={50} height={50} />
+            <p className="font-semibold">
+              {formData.bags} {formData === 1 ? "worek" : "worki"},{" "}
+              {formData.thing}, {formData.whoHelp.join(", ")}
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <Image src={icon4} alt={"shirt"} width={50} height={50} />
+            <p className="font-semibold">
+              dla lokalizacji {formData.localization}
+            </p>
+          </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-between w-full xl:w-3/5 gap-12">
           <div className="flex flex-col gap-5">
@@ -55,7 +68,7 @@ export default function StepSummary({ step, prev }) {
           </div>
         </div>
       </div>
-      <StepButtons step={step} prev={prev} send={send} />
+      <StepButtons step={step} prev={prev} next={next} send={sendForm} />
     </StepBox>
   );
 }
