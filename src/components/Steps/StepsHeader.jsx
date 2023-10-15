@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Heading from "@/components/Heading";
 import Navigation from "@/components/Navigation";
 import bcgPhoto from "@/images/Form-Hero-Image.jpg";
+import { usePathname } from "next/navigation";
 
 export default function StepsHeader() {
+  const pathname = usePathname();
   return (
     <div className="relative text-text_color">
       <header className="flex flex-col md:flex-row justify-end">
@@ -20,29 +23,45 @@ export default function StepsHeader() {
             Wystarczą 4 proste kroki
           </p>
           <div className="flex flex-col md:flex-row mt-12 gap-20 md:gap-6 font-light scale-75 xl:scale-100">
-            <div className="w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45">
-              <p className="-rotate-45 text-[32px] pl-[15px]">1</p>
-              <p className="-rotate-45 text-[22px] w-1/2 pl-[40px]">
-                Wybierz rzeczy
-              </p>
+            <div
+              className={`w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45 ${
+                pathname === "/oddaj-rzeczy/1" && "bg-yellow"
+              }`}
+            >
+              <div className="-rotate-45 flex flex-col items-center justify-center text-center">
+                <p className="text-[32px] ">1</p>
+                <p className="text-[22px] ">Wybierz rzeczy</p>
+              </div>
             </div>
-            <div className="w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45">
-              <p className="-rotate-45 text-[32px] pl-[15px]">2</p>
-              <p className="-rotate-45 text-[22px] w-1/2 pl-[45px]">
-                Spakuj worki
-              </p>
+            <div
+              className={`w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45 ${
+                pathname === "/oddaj-rzeczy/2" && "bg-yellow"
+              }`}
+            >
+              <div className="-rotate-45 flex flex-col items-center justify-center text-center px-4">
+                <p className="text-[32px] ">2</p>
+                <p className="text-[22px] ">Spakuj worki</p>
+              </div>
             </div>
-            <div className="w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45">
-              <p className="-rotate-45 text-[32px] pl-[15px]">3</p>
-              <p className="-rotate-45 text-[22px] w-1/2 pl-[40px]">
-                Wybierz fundację
-              </p>
+            <div
+              className={`w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45 ${
+                pathname === "/oddaj-rzeczy/3" && "bg-yellow"
+              }`}
+            >
+              <div className="-rotate-45 flex flex-col items-center justify-center text-center">
+                <p className="text-[32px] ">3</p>
+                <p className="text-[22px] ">Wybierz fundację</p>
+              </div>
             </div>
-            <div className="w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45">
-              <p className="-rotate-45 text-[32px] pl-[15px]">4</p>
-              <p className="-rotate-45 text-[22px] w-1/2 pl-[40px]">
-                Zamów kuriera
-              </p>
+            <div
+              className={`w-[150px] h-[150px] border border-text_color border-solid flex flex-col justify-around items-start rotate-45 ${
+                pathname === "/oddaj-rzeczy/4" && "bg-yellow"
+              }`}
+            >
+              <div className="-rotate-45 flex flex-col items-center justify-center text-center">
+                <p className="text-[32px] ">4</p>
+                <p className="text-[22px] ">Zamów kuriera</p>
+              </div>
             </div>
           </div>
         </div>
