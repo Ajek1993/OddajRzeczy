@@ -20,8 +20,13 @@ export default function StepSummary({ step, prev, next }) {
           <div className="flex items-center gap-4">
             <Image src={icon1} alt={"shirt"} width={50} height={50} />
             <p className="font-semibold">
-              {formData.bags} {formData === 1 ? "worek" : "worki"},{" "}
-              {formData.thing}, {formData.whoHelp.join(", ")}
+              {formData.bags}{" "}
+              {formData.bags === 1
+                ? "worek"
+                : formData.bags < 5
+                ? "worki"
+                : "worków"}
+              , {formData.thing}, {formData.whoHelp.join(", ")}
             </p>
           </div>
           <div className="flex items-center gap-4">

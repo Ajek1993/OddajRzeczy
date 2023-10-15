@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 export default function StepButtons({ step, prev, next, send }) {
   const { formData, setFormData } = useForm();
   const pathname = usePathname();
-  console.log(pathname);
 
   const handleClickPrev = () => {
     prev();
@@ -44,6 +43,20 @@ export default function StepButtons({ step, prev, next, send }) {
   };
 
   const handleSubmit = () => {
+    setFormData({
+      thing: "",
+      bags: "",
+      localization: "",
+      whoHelp: [],
+      organization: "",
+      street: "",
+      city: "",
+      code: "",
+      phone: "",
+      date: "",
+      hour: "",
+      message: "",
+    });
     send();
     next();
   };

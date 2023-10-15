@@ -6,8 +6,6 @@ import Heading from "../Heading";
 import Image from "next/image";
 import instagram from "../../images/Instagram.svg";
 import facebook from "../../images/Facebook.svg";
-import * as yup from "yup";
-import Link from "next/link";
 
 export default function HomeContact() {
   const [data, setData] = useState({
@@ -15,37 +13,60 @@ export default function HomeContact() {
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState([]);
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [success, setSuccess] = useState(false);
 
   const validation = (obj) => {
     setSuccess(false);
-    const findedErrors = [];
 
     if (obj.name.length <= 3) {
-      findedErrors.push("Imię musi mieć długość min. 3 znaków");
+      setErrors((prev) => ({
+        ...prev,
+        name: "Imię musi mieć długość min. 3 znaków",
+      }));
+    } else if (obj.name.split(" ").length > 1) {
+      setErrors((prev) => ({
+        ...prev,
+        name: "Imię musi składać się z jednego wyrazu",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        name: "",
+      }));
     }
-    if (obj.name.split(" ").length > 1) {
-      findedErrors.push("Imię musi składać się z jednego wyrazu");
-    }
+
     if (
       data.email.indexOf("@") === -1 ||
       data.email.lastIndexOf(".") < data.email.lastIndexOf("@")
     ) {
-      findedErrors.push("Niepoprawny adres email");
+      setErrors((prev) => ({
+        ...prev,
+        email: "Niepoprawny adres email",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        email: "",
+      }));
     }
     if (data.message.length < 120) {
-      findedErrors.push("Wiadomośc musi mieć długość min. 120 znaków");
+      setErrors((prev) => ({
+        ...prev,
+        message: "Wiadomość musi mieć długość min. 120 znaków",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        message: "",
+      }));
     }
-
-    setErrors(findedErrors);
   };
-
-  // const dataSchema = yup.object().shape({
-  //   name: yup.string().min(3),
-  //   email: yup.string().email("must be a valid email"),
-  //   message: yup.string().min(1).max(120),
-  // });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,12 +96,6 @@ export default function HomeContact() {
     } catch (error) {
       console.log(error);
     }
-
-    // console.log(dataSchema);
-    // await dataSchema.validate(data).catch(function (err) {
-    //   console.log(err.name);
-    //   console.log(err.errors);
-    // });
   };
 
   const handleChange = ({ target: { name, value } }) => {
@@ -113,12 +128,19 @@ export default function HomeContact() {
                 }}
                 type="text"
                 id="name"
-                className="outline-none py-1 border-b border-text_color border-solid placeholder:italic placeholder:opacity-50"
+                className={`outline-none py-1 border-b ${
+                  errors.name ? "border-red-600" : "border-text_color"
+                } border-solid placeholder:italic placeholder:opacity-50`}
                 placeholder="Andrzej"
                 name="name"
                 value={data.name}
                 onChange={handleChange}
               />
+              {errors.name && (
+                <p className="text-red-600 text-xs font-bold mt-1">
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="flex flex-col lg:w-1/2">
               <label htmlFor="email" className="font-semibold my-2">
@@ -134,6 +156,11 @@ export default function HomeContact() {
                 value={data.email}
                 onChange={handleChange}
               />
+              {errors.email && (
+                <p className="text-red-600 text-xs font-bold mt-1">
+                  {errors.email}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex flex-col">
@@ -145,13 +172,18 @@ export default function HomeContact() {
               type="text"
               id="message"
               className="w-full outline-none  border-b border-text_color border-solid placeholder:italic placeholder:opacity-50"
-              placeholder="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae veniam ex. Necessitatibus totam voluptatibus impedit, numquam quo harum? Obcaecati! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae veniam ex. Necessitatibus totam voluptatibus impedit, numquam quo harum? Obcaecati!"
+              placeholder="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam molestiae veniam ex. Necessitatibus totam voluptatibus impedit, numquam quo harum? Obcaecati! "
               cols={33}
               rows={6}
               name="message"
               value={data.message}
               onChange={handleChange}
             />
+            {errors.message && (
+              <p className="text-red-600 text-xs font-bold mt-1">
+                {errors.message}
+              </p>
+            )}
           </div>
           <button
             type="sumbit"
@@ -160,7 +192,7 @@ export default function HomeContact() {
           >
             Wyślij
           </button>
-          {errors.length !== 0 && (
+          {/* {errors.length !== 0 && (
             <ul
               className="bg-red-500 text-white p-4 font-bold text-sm
           "
@@ -169,7 +201,7 @@ export default function HomeContact() {
                 <li key={error}>{error}</li>
               ))}
             </ul>
-          )}
+          )} */}
           {success && (
             <p className="bg-green-500 text-white p-2">Wysłano poprawnie</p>
           )}
