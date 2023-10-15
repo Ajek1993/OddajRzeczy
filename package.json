@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^10.5.0",
+    "firebase-firestore-lite": "^1.0.3",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

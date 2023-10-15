@@ -4,8 +4,13 @@ import Heading from "@/components/Heading";
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../../../firebase.js";
 
 export default function page() {
+  const router = useRouter();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -23,6 +28,7 @@ export default function page() {
   const handleLogin = (e) => {
     e.preventDefault();
     setErrors([]);
+
     // Validation
     if (
       values.email.indexOf("@") === -1 ||
@@ -50,6 +56,22 @@ export default function page() {
         password: "",
       }));
     }
+
+    const auth = getAuth(app);
+
+    const { email, password } = values;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        // alert("Zalogowano pomyślnie");
+        router.push("/");
+
+        setValues({
+          email: "",
+          password: "",
+        });
+      })
+      .catch((error) => {});
   };
 
   return (
