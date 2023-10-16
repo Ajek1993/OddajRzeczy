@@ -31,22 +31,24 @@ export default function Navigation() {
             <Link href="/panel" className="font-semibold">{`Witaj, ${
               user.displayName ? user.displayName : user.email
             } !`}</Link>
-            <Link
-              href="/oddaj-rzeczy/1"
-              className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg font-semibold"
-            >
-              Oddaj rzeczy
-            </Link>
-            <Link href="/logout" onClick={handleLogout}>
-              Wyloguj
-            </Link>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <Link
+                href="/oddaj-rzeczy/1"
+                className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg font-semibold text-center"
+              >
+                Oddaj rzeczy
+              </Link>
+              <Link href="/logout" onClick={handleLogout}>
+                Wyloguj
+              </Link>
+            </div>
           </>
         );
     }
   };
 
   return (
-    <div className="navigations container flex flex-col justify-end ">
+    <div className="navigations container flex flex-col justify-end px-4">
       <nav className="upperNav flex items-center justify-end gap-4 text-sm text-signIn_signOnBtn mt-9">
         {getUser()}
       </nav>
