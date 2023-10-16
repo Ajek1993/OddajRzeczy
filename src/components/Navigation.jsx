@@ -28,7 +28,9 @@ export default function Navigation() {
       default:
         return (
           <>
-            <p className="font-semibold">{`Witaj, ${user.email} !`}</p>
+            <Link href="/panel" className="font-semibold">{`Witaj, ${
+              user.displayName ? user.displayName : user.email
+            } !`}</Link>
             <Link
               href="/oddaj-rzeczy/1"
               className="border-solid border border-yellow py-2 px-3 hover:bg-secondaryBcg font-semibold"
